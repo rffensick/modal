@@ -1,0 +1,32 @@
+include sections/header
+include settings/settings
+
+
+<!DOCTYPE html>
+html(lang="ru")
+	head
+		+settings()
+	body
+		main
+			a.cta(href="#") Learn more now <i class="ion-chevron-right"></i>
+			h1
+				span Good at
+				br
+				span business?
+		.overlay
+			.modal
+				.close-btn: <i class="ion-close"></i>
+				.text-box
+					p.lead Business stuff in your inbox, all the time
+					p Sing up for our newslatter to download this 200+ page secrets of business
+				.graphic
+				form
+					input(name="Email" type="text" placeholder="Email address")
+					input(type="submit" value="Отправить")
+			
+
+
+		link(rel="stylesheet" href="css/main.min.css")
+		link(rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css")
+		script(src="js/scripts.min.js")
+	

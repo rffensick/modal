@@ -1,0 +1,222 @@
+@import "fonts"
+@import "libs"
+@import "vars"
+@import "bourbon"
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: #666
+body input:required:valid,
+body textarea:required:valid
+	color: #666
+
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.75
+	font-family: $default-font
+	overflow-x: hidden
+	opacity: 1
+
+.fl-l
+	float: left
+.fl-r
+	float: right
+
+.text-center
+	text-align: center
+.text-left
+	text-align: left
+.text-right
+	text-align: right
+
+.wrapper
+	width: 1200px
+	padding: 0 15px
+	margin: 0 auto
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
+.main
+	min-height: 100%
+	background-color: #000
+
+body
+	height: 100vh
+	background:
+		image: url('../img/bg.jpg')
+		size: cover
+	display: flex
+	align-items: center
+	justify-content: center
+main
+	display: flex
+	flex-direction: column
+	align-items: flex-start
+	h1
+		font-weight: bold
+		color: $yellow
+		text-transform: uppercase
+		font-size: 80px
+		margin: 0
+		+tr(.1s ease-in-out)
+		order: -1
+		span
+			display: inline-block
+			background-color: #000
+			margin-bottom: 5px
+			padding: 0 0.2em
+			+tr(.1s ease-in-out)
+	.cta
+		display: inline-block
+		background-color: $yellow
+		color: black
+		text-decoration: none
+		font-size: 30px
+		text-transform: uppercase
+		padding: 0 .2em
+		+tr(.1s ease-in-out)
+		&:hover
+			background-color: #000
+			color: $yellow
+			.ion-chevron-right
+				margin-left: .5em
+		&:hover ~ h1
+			color: black
+			span
+				background-color: $yellow
+
+		.ion-chevron-right
+			font-size: .9em
+			margin-left: .3em
+			+tr(.1s ease-in-out)
+
+
+.overlay
+	position: absolute
+	background: fade-out($yellow, .05)
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	display: flex
+	align-items: center
+	justify-content: center
+	// display: none
+	opacity: 0
+	pointer-events: none
+	+tr(.25s ease)
+	&.is-open
+		opacity: 1
+		pointer-events: auto
+		.modal
+			transform: translate(0, 0)
+.modal
+	transform: translate(0, -100px)
+	background-color: #fff
+	padding: 30px
+	box-shadow: 0 4px 20px rgba(0, 0, 0, .4)
+	position: relative
+	+tr(.25s ease)
+	.close-btn
+		position: absolute
+		top: -40px
+		right: -30px
+		height: 30px
+		width: 30px
+		text-align: center
+		font-size: 30px
+		line-height: 30px
+		cursor: pointer
+		+tr(.25s ease)
+		&:hover
+			transform: scale(1.2)
+	.text-box
+		max-width: 50%
+		.lead
+			font-size: 20px
+			color: black
+			line-height: 1.3
+		p
+			color: #999
+			font-size: 15px
+	.graphic
+		position: absolute
+		width: 256px
+		top: 0
+		right: 0
+		background: url(../img/presentation.png) bottom left
+		height: 280px
+	form
+		position: relative
+		z-index: 2
+		background: black
+		padding: 20px
+		margin: 60px -30px -30px
+		display: flex
+		input
+			height: 60px
+			border: none
+			display: inline-block
+			padding: 0 30px
+			font-size: 18px
+			+tr(.2s ease-in-out)
+			&:focus
+				outline: none
+				box-shadow: 0 0 1px 30px $yellow inset
+				color: black
+			&:focus ~ input[type="submit"]
+				background: black
+				color: $yellow
+				border: 1px solid $yellow
+			&[type="text"]
+				+placeholder-color(#000)
+				flex: 1
+			&[type="submit"]
+				background: $yellow
+				margin-left: 10px
+				border: 1px solid transparent
+
+@media (max-width: 720px)
+	.modal
+		margin: 10px
+		.close-btn
+			right: 0
+	h1
+		line-height: 0.7
+		span
+			font-size: 50px
+			line-height: 1.4
+	main .cta
+		font-size: 20px
+@media (max-width: 580px)
+	.modal
+		.graphic
+			display: none
+		.text-box
+			max-width: 100%
+		form
+			flex-direction: column
+			input[type="submit"]
+				margin: 0
+
+
+
+// header
+// 	position: absolute
+// 	left: 0
+// 	top: 0
+// 	right: 0
+
+// footer
+// 	position: absolute
+// 	left: 0
+// 	bottom: 0
+// 	right: 0
+
+@import "media" // Всегда в конце
